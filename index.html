@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宝宝专属姨妈打卡</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .popup {
+      border: 3px dashed pink;
+      padding: 20px;
+      border-radius: 20px;
+      background: white;
+      display: inline-block;
+      animation: popup 0.6s ease;
+      box-shadow: 0 0 20px #f3a4c0;
+    }
+    @keyframes popup {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .icon {
+      width: 120px;
+      border-radius: 50%;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧸 宝宝的姨妈打卡页面</h1>
+  <button onclick="showPopup()">点我打卡！</button>
+
+  <div id="popup-container" style="margin-top:20px;"></div>
+
+  <audio id="bgm" src="music.mp3" autoplay loop></audio>
+  <audio id="haechan" src="haechan.mp3"></audio>
+  <audio id="jaemin" src="jaemin.mp3"></audio>
+
+  <script>
+    function showPopup() {
+      const container = document.getElementById('popup-container');
+      container.innerHTML = \`
+        <div class="popup">
+          <img src="haechan.png" class="icon" /><br />
+          <p>🎉 今日打卡成功～Haechan发来爱心~</p>
+          <p>💙 Jaemin：宝宝，身体还好吗？要好好休息哦~ 爱你~</p>
+        </div>\`;
+      document.getElementById('haechan').play();
+      setTimeout(() => {
+        document.getElementById('jaemin').play();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
